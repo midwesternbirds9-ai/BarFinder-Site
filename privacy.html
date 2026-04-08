@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy – BarFinder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber: #EF9F27;
+    --amber-dark: #BA7517;
+    --amber-light: #FAEEDA;
+    --coral: #D85A30;
+    --bg: #FFFDF7;
+    --text: #2C2C2A;
+    --muted: #5F5E5A;
+    --card-bg: #fff;
+    --border: #E8E4D8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    background: var(--bg);
+    border-bottom: 1.5px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.7rem;
+    color: var(--amber-dark);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--coral); }
+  nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--amber-dark); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+
+  .page-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .page-badge {
+    display: inline-block;
+    background: var(--amber-light);
+    color: var(--amber-dark);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  h1 {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .updated {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .intro-box {
+    background: var(--amber-light);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 3rem;
+    color: var(--amber-dark);
+    line-height: 1.7;
+    font-size: 0.97rem;
+  }
+  .intro-box strong { font-weight: 600; }
+
+  h2 {
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    margin-top: 2.5rem;
+    color: var(--text);
+  }
+  h2:first-of-type { margin-top: 0; }
+  p {
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-size: 0.97rem;
+  }
+  ul {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+  ul li {
+    color: var(--muted);
+    font-size: 0.97rem;
+    line-height: 1.7;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    position: relative;
+  }
+  ul li::before {
+    content: '🍺';
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+    top: 0.45rem;
+  }
+  .divider {
+    height: 1.5px;
+    background: var(--border);
+    margin: 2.5rem 0;
+  }
+  .contact-box {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-top: 2rem;
+  }
+  .contact-box h3 {
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .contact-box a {
+    color: var(--amber-dark);
+    font-weight: 500;
+  }
+
+  footer {
+    border-top: 1.5px solid var(--border);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-logo {
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.3rem;
+    color: var(--amber-dark);
+  }
+  .footer-logo span { color: var(--coral); }
+  footer p { color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+  footer a:hover { color: var(--amber-dark); }
+  .footer-links { display: flex; gap: 1.5rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Bar<span>Finder</span> 🍺</a>
+  <div class="nav-links">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#support">Support</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <div class="page-badge">Legal</div>
+  <h1>Privacy Policy 🔒</h1>
+  <p class="updated">Last updated: January 1, 2025</p>
+
+  <div class="intro-box">
+    <strong>The short version:</strong> BarFinder uses your location to show nearby bars. We don't sell your data, we don't track you when the app is closed, and you're always in control. Read on for the full details.
+  </div>
+
+  <h2>1. Who We Are</h2>
+  <p>BarFinder ("we," "us," or "our") is the developer of the BarFinder iOS application. This Privacy Policy explains how we collect, use, and protect your information when you use our app.</p>
+  <p>If you have questions, contact us at: <a href="mailto:support@barfinderapp.com" style="color: var(--amber-dark); font-weight:500;">support@barfinderapp.com</a></p>
+
+  <div class="divider"></div>
+
+  <h2>2. Information We Collect</h2>
+  <p>We collect only what we need to provide you with a great bar-finding experience:</p>
+  <ul>
+    <li><strong>Location Data:</strong> With your permission, we access your device's location to show bars near you. Location is accessed only while the app is in use (foreground only) unless you grant "Always On" permission.</li>
+    <li><strong>Account Information:</strong> If you create an account, we collect your email address and display name.</li>
+    <li><strong>App Usage Data:</strong> We collect anonymized analytics (e.g., which features you use, crash reports) to improve the app. This data is never linked to your identity.</li>
+    <li><strong>Reviews & Content:</strong> Any reviews or content you submit are stored on our servers and associated with your account.</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h2>3. How We Use Your Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Show you bars, events, and happy hours near your location</li>
+    <li>Personalize your experience and remember your saved favorites</li>
+    <li>Send you optional notifications about deals or events (only if you opt in)</li>
+    <li>Fix bugs, improve performance, and develop new features</li>
+    <li>Respond to your support requests</li>
+  </ul>
+  <p>We do <strong>not</strong> use your information for advertising, and we do <strong>not</strong> sell your data to any third parties.</p>
+
+  <div class="divider"></div>
+
+  <h2>4. Location Data</h2>
+  <p>Location access is the core of what makes BarFinder work. Here's exactly how we handle it:</p>
+  <ul>
+    <li>We request location permission the first time you open the app.</li>
+    <li>You can revoke location access at any time in your iPhone's Settings.</li>
+    <li>We access location <strong>only while you're actively using the app</strong> (unless you select "Always Allow").</li>
+    <li>Your precise location is never stored on our servers — we only store general search areas.</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h2>5. Sharing Your Information</h2>
+  <p>We don't sell or rent your personal information. We may share limited data with:</p>
+  <ul>
+    <li><strong>Service providers:</strong> We use trusted third-party services for hosting, analytics (anonymized), and crash reporting. These providers are contractually bound to protect your data.</li>
+    <li><strong>Legal requirements:</strong> We may disclose information if required by law or to protect the rights and safety of our users.</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h2>6. Data Retention</h2>
+  <p>We retain your account information as long as your account is active. If you delete your account, we permanently delete your personal data within 30 days, except where required by law to retain it.</p>
+
+  <div class="divider"></div>
+
+  <h2>7. Your Rights</h2>
+  <p>You have the right to:</p>
+  <ul>
+    <li>Access the personal data we hold about you</li>
+    <li>Correct inaccurate information</li>
+    <li>Request deletion of your account and associated data</li>
+    <li>Opt out of non-essential communications at any time</li>
+  </ul>
+  <p>To exercise any of these rights, email us at <a href="mailto:support@barfinderapp.com" style="color: var(--amber-dark); font-weight:500;">support@barfinderapp.com</a>.</p>
+
+  <div class="divider"></div>
+
+  <h2>8. Children's Privacy</h2>
+  <p>BarFinder is intended for users aged 21 and older. We do not knowingly collect data from anyone under 18. If we become aware that a minor has provided personal information, we will delete it promptly.</p>
+
+  <div class="divider"></div>
+
+  <h2>9. Security</h2>
+  <p>We use industry-standard security measures including HTTPS encryption for all data in transit and secure, access-controlled servers for data at rest. While no system is 100% secure, we take every reasonable step to protect your information.</p>
+
+  <div class="divider"></div>
+
+  <h2>10. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we do, we'll update the "Last updated" date at the top of this page. For significant changes, we'll notify you via the app or email.</p>
+
+  <div class="divider"></div>
+
+  <div class="contact-box">
+    <h3>Questions? 🙌</h3>
+    <p style="margin-top:0.5rem;">If you have any questions about this Privacy Policy or how we handle your data, we'd love to hear from you.</p>
+    <p style="margin-bottom:0;"><a href="mailto:support@barfinderapp.com">support@barfinderapp.com</a></p>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Bar<span>Finder</span> 🍺</div>
+    <p style="margin-top:0.3rem;">© 2025 BarFinder. All rights reserved.</p>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:support@barfinderapp.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

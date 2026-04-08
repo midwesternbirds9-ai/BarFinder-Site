@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BarFinder – Discover Your Next Favorite Bar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber: #EF9F27;
+    --amber-dark: #BA7517;
+    --amber-light: #FAEEDA;
+    --coral: #D85A30;
+    --coral-light: #FAECE7;
+    --teal: #1D9E75;
+    --teal-light: #E1F5EE;
+    --bg: #FFFDF7;
+    --text: #2C2C2A;
+    --muted: #5F5E5A;
+    --card-bg: #fff;
+    --border: #E8E4D8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    background: var(--bg);
+    border-bottom: 1.5px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.7rem;
+    color: var(--amber-dark);
+    letter-spacing: 0.5px;
+  }
+  .nav-logo span { color: var(--coral); }
+  nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--amber-dark); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-cta {
+    background: var(--amber);
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--amber-dark) !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #FAEEDA 0%, transparent 70%);
+    top: -100px; left: 50%; transform: translateX(-50%);
+    z-index: 0;
+  }
+  .hero-badge {
+    background: var(--amber-light);
+    color: var(--amber-dark);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--text);
+    position: relative;
+    max-width: 800px;
+  }
+  .hero h1 .highlight { color: var(--amber); }
+  .hero h1 .highlight2 { color: var(--coral); }
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin: 1.5rem 0 2.5rem;
+    position: relative;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+  }
+  .btn-primary {
+    background: var(--amber);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(239,159,39,0.3);
+  }
+  .btn-primary:hover { background: var(--amber-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--amber); transform: translateY(-2px); }
+
+  /* MOCKUP */
+  .mockup-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 3rem auto 0;
+    position: relative;
+  }
+  .phone {
+    width: 240px;
+    height: 480px;
+    background: var(--text);
+    border-radius: 36px;
+    padding: 14px;
+    box-shadow: 0 30px 80px rgba(44,44,42,0.25);
+    position: relative;
+  }
+  .phone-screen {
+    background: linear-gradient(160deg, #1a1200 0%, #2d1c00 100%);
+    border-radius: 26px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .phone-header {
+    font-family: 'Boogaloo', cursive;
+    color: var(--amber);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  .phone-search {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 0.5rem 0.75rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.72rem;
+    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .bar-card {
+    background: rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 0.7rem;
+    margin-bottom: 0.6rem;
+  }
+  .bar-card-name { color: #fff; font-size: 0.78rem; font-weight: 600; font-family: 'DM Sans', sans-serif; }
+  .bar-card-sub { color: rgba(255,255,255,0.45); font-size: 0.65rem; font-family: 'DM Sans', sans-serif; margin-top: 2px; }
+  .bar-card-stars { color: var(--amber); font-size: 0.65rem; margin-top: 4px; }
+  .tag {
+    display: inline-block;
+    background: rgba(239,159,39,0.2);
+    color: var(--amber);
+    font-size: 0.58rem;
+    padding: 2px 7px;
+    border-radius: 999px;
+    margin-top: 4px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* FEATURES */
+  .section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: 'Boogaloo', cursive;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .feature-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(44,44,42,0.1);
+  }
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .icon-amber { background: var(--amber-light); }
+  .icon-coral { background: var(--coral-light); }
+  .icon-teal { background: var(--teal-light); }
+  .feature-card h3 {
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .feature-card p { color: var(--muted); line-height: 1.6; font-size: 0.95rem; }
+
+  /* SUPPORT */
+  #support { background: var(--card-bg); border-radius: 28px; border: 1.5px solid var(--border); padding: 4rem 3rem; max-width: 900px; margin: 0 auto 5rem; }
+  #support .section-title { margin-bottom: 1rem; }
+  #support p { color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+  .faq { margin-top: 2rem; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 1.2rem 0;
+  }
+  .faq-q {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .faq-a { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+  .support-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--amber-light);
+    color: var(--amber-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .support-email:hover { background: #FAC775; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1.5px solid var(--border);
+    padding: 2.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  footer .logo {
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.4rem;
+    color: var(--amber-dark);
+  }
+  footer .logo span { color: var(--coral); }
+  footer p { color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+  footer a:hover { color: var(--amber-dark); }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  /* HERO EMOJI FLOATS */
+  .float-emoji {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: float 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    #support { padding: 2.5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Bar<span>Finder</span> 🍺</div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#support">Support</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="#support" class="nav-cta">Get the App</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="float-emoji" style="top:120px;left:8%;animation-delay:0s;">🍻</span>
+  <span class="float-emoji" style="top:200px;right:10%;animation-delay:1.2s;">🍹</span>
+  <span class="float-emoji" style="top:320px;left:5%;animation-delay:0.7s;">🎶</span>
+  <span class="float-emoji" style="top:80px;right:6%;animation-delay:2s;">🌟</span>
+
+  <div class="hero-badge">🍺 Now Available on the App Store</div>
+  <h1>Find Your Next <span class="highlight">Perfect</span> <span class="highlight2">Bar</span> Tonight</h1>
+  <p>BarFinder helps you discover the best bars near you — filtered by vibe, drinks, music, and more. No more guessing where to go.</p>
+  <div class="hero-buttons">
+    <a href="#" class="btn-primary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on App Store
+    </a>
+    <a href="#support" class="btn-secondary">Get Support</a>
+  </div>
+
+  <div class="mockup-wrap">
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="phone-header">BarFinder 🍺</div>
+        <div class="phone-search">🔍 Search bars near you...</div>
+        <div class="bar-card">
+          <div class="bar-card-name">The Golden Pint</div>
+          <div class="bar-card-sub">0.3 mi away · Open until 2am</div>
+          <div class="bar-card-stars">★★★★★</div>
+          <div><span class="tag">Craft Beer</span> <span class="tag">Live Music</span></div>
+        </div>
+        <div class="bar-card">
+          <div class="bar-card-name">Velvet Lounge</div>
+          <div class="bar-card-sub">0.7 mi away · Open until 3am</div>
+          <div class="bar-card-stars">★★★★☆</div>
+          <div><span class="tag">Cocktails</span> <span class="tag">Rooftop</span></div>
+        </div>
+        <div class="bar-card">
+          <div class="bar-card-name">Hopscotch Tavern</div>
+          <div class="bar-card-sub">1.1 mi away · Open until 1am</div>
+          <div class="bar-card-stars">★★★★☆</div>
+          <div><span class="tag">Sports Bar</span> <span class="tag">Happy Hour</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="section" id="features">
+  <div class="section-label">Why BarFinder?</div>
+  <h2 class="section-title">Everything you need for a great night out 🎉</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon icon-amber">📍</div>
+      <h3>Bars Near You</h3>
+      <p>Instantly see all the bars around you with real-time hours, distance, and ratings so you always know what's open.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon icon-coral">🎯</div>
+      <h3>Filter by Vibe</h3>
+      <p>Craft beer? Rooftop? Live music? Sports bar? Filter by what you're in the mood for and find the perfect spot every time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon icon-teal">⭐</div>
+      <h3>Reviews & Ratings</h3>
+      <p>Real reviews from real bar-goers. See what's worth your time and what to skip before you even walk out the door.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon icon-amber">🍹</div>
+      <h3>Happy Hour Alerts</h3>
+      <p>Never miss a deal. BarFinder tracks happy hour times so you always know where to score a great drink at a great price.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon icon-coral">📅</div>
+      <h3>Events & Specials</h3>
+      <p>Trivia nights, live bands, karaoke — see what's happening at local bars this week and make plans in advance.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon icon-teal">📌</div>
+      <h3>Save Your Favorites</h3>
+      <p>Bookmark bars you love or want to try. Build your personal bar bucket list and share it with friends.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPORT -->
+<div style="padding: 0 2rem;">
+<div id="support">
+  <div class="section-label">Support</div>
+  <h2 class="section-title">We've got your back 🙌</h2>
+  <p>Have a question or running into an issue? We're a small team that cares deeply about your experience. Reach out and we'll get back to you quickly.</p>
+  <a href="mailto:support@barfinderapp.com" class="support-email">📧 support@barfinderapp.com</a>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">How does BarFinder find bars near me?</div>
+      <div class="faq-a">BarFinder uses your device's location (with your permission) to show bars within a radius you can customize. Location is only used while the app is open.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is BarFinder free to use?</div>
+      <div class="faq-a">Yes! BarFinder is free to download and use. Some premium features may be available via an optional subscription in the future.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I submit or correct a bar listing?</div>
+      <div class="faq-a">Tap the "Suggest an Edit" button on any bar's detail page, or email us at support@barfinderapp.com and we'll update it promptly.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">The app is crashing or not loading — what do I do?</div>
+      <div class="faq-a">Try closing and reopening the app. If the issue persists, delete and reinstall it from the App Store. Still stuck? Email us with your device model and iOS version.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I delete my account and data?</div>
+      <div class="faq-a">You can request account deletion at any time by emailing us at support@barfinderapp.com with the subject "Delete My Account." We'll process it within 7 business days.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="logo">Bar<span>Finder</span> 🍺</div>
+    <p style="margin-top:0.4rem;">© 2025 BarFinder. All rights reserved.</p>
+  </div>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="#support">Support</a>
+    <a href="mailto:support@barfinderapp.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
